@@ -6,16 +6,16 @@ Creates IAM users in bulk from `users.csv`, generates initial console login prof
 ## Architecture
 ```mermaid
 flowchart TB
-  CSV[users.csv\n26 employee records] --> D[csvdecode(file(...))]
-  D --> U[local.users]
-  U --> IAM[aws_iam_user.users\nfor_each by first_name]
-  IAM --> LP[aws_iam_user_login_profile.users]
-  IAM --> E[Education group\nDepartment = Education]
-  IAM --> G[Engineers group\nDepartment = Engineering]
-  IAM --> M[Managers group\nJobTitle matches Manager or CEO]
-  ID[data.aws_caller_identity.name] --> O[account_id output]
-  IAM --> N[user_names output]
-  LP --> S[user_passwords output\nsensitive]
+  CSV["users.csv - 26 employee records"] --> D["Decode CSV records"]
+  D --> U["local.users"]
+  U --> IAM["Create IAM users - for_each by first_name"]
+  IAM --> LP["Create console login profiles"]
+  IAM --> E["Education group - department filter"]
+  IAM --> G["Engineers group - department filter"]
+  IAM --> M["Managers group - title regex"]
+  ID["AWS account identity"] --> O["account_id output"]
+  IAM --> N["user_names output"]
+  LP --> S["user_passwords output - sensitive"]
 ```
 
 ## Current Dataset And Rules
