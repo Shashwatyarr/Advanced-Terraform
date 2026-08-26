@@ -26,7 +26,7 @@
 # Terraform plan files
 **/*.tfplan
 **/planfile
-
+**/*.pem
 # Terraform lock file
 # KEEP .terraform.lock.hcl committed for reproducible provider versions
 # **/.terraform.lock.hcl
