@@ -1,4 +1,4 @@
-# Advanced Terraform Lab
+# Advanced Terraform 
 
 This repository is a collection of independent Terraform exercises and AWS infrastructure examples. Each subfolder is its own Terraform root module: initialize, plan, apply, and destroy from inside that folder rather than from the repository root.
 
