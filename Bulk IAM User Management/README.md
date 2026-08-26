@@ -20,7 +20,7 @@ flowchart TB
 
 ## Current Dataset And Rules
 
-Each CSV row must contain `first_name`, `last_name`, `department`, and `job_title`. The IAM name is generated as the first initial plus last name, for example `MichaelScott` becomes `MScott`; every user is placed under `/users/`.
+Each CSV row must contain `first_name`, `last_name`, `department`, and `job_title`. The IAM name is generated as the first initial plus last name, for example the row `Michael,Scott` becomes `MScott`; every user is placed under `/users/`.
 
 | Group | Membership rule |
 |---|---|

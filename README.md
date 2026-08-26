@@ -1,4 +1,4 @@
-# Advanced Terraform Lab
+# Advanced Terraform
 
 This repository is a collection of independent Terraform exercises and AWS infrastructure examples. Each subfolder is its own Terraform root module: initialize, plan, apply, and destroy from inside that folder rather than from the repository root.
 
@@ -6,24 +6,24 @@ This repository is a collection of independent Terraform exercises and AWS infra
 
 ```mermaid
 mindmap
-	root((Advanced Terraform))
-		Language
-			Conditional expressions
-			Functions
-			Type constraints
-			Meta arguments
-			Lifecycle rules
-			File structure
-		AWS foundations
-			Provider and VPC
-			S3 bucket
-			Data sources
-			State management
-			Identity and access
-				Bulk IAM user management
-		Real architectures
-			S3 + CloudFront website
-			Cross-region VPC peering
+  root((Advanced Terraform))
+    Language
+      Conditional expressions
+      Functions
+      Type constraints
+      Meta arguments
+      Lifecycle rules
+      File structure
+    AWS foundations
+      Provider and VPC
+      S3 bucket
+      Data sources
+      State management
+      Identity and access
+        Bulk IAM user management
+    Real architectures
+      S3 + CloudFront website
+      Cross-region VPC peering
 ```
 
 ## Project Map
@@ -48,16 +48,16 @@ mindmap
 
 ```mermaid
 flowchart LR
-		A[Choose one folder] --> B[Review README and variables]
-		B --> C[Configure AWS credentials]
-		C --> D[terraform init]
-		D --> E[terraform fmt -check]
-		E --> F[terraform validate]
-		F --> G[terraform plan]
-		G --> H{Review plan}
-		H -->|Approved| I[terraform apply]
-		I --> J[Capture outputs and inspect resources]
-		J --> K[terraform destroy]
+  A[Choose one folder] --> B[Review README and variables]
+  B --> C[Configure AWS credentials]
+  C --> D[terraform init]
+  D --> E[terraform fmt -check]
+  E --> F[terraform validate]
+  F --> G[terraform plan]
+  G --> H{Review plan}
+  H -->|Approved| I[terraform apply]
+  I --> J[Capture outputs and inspect resources]
+  J --> K[terraform destroy]
 ```
 
 Run these commands from the selected project directory:
