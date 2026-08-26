@@ -20,10 +20,11 @@ mindmap
       Data sources
       State management
       Identity and access
-        Bulk IAM user management
+        
     Real architectures
       S3 + CloudFront website
       Cross-region VPC peering
+      Bulk IAM user management
 ```
 
 ## Project Map
