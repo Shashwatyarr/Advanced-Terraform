@@ -19,6 +19,8 @@ mindmap
 			S3 bucket
 			Data sources
 			State management
+			Identity and access
+				Bulk IAM user management
 		Real architectures
 			S3 + CloudFront website
 			Cross-region VPC peering
@@ -29,6 +31,7 @@ mindmap
 | Project | Main concept | Infrastructure footprint |
 |---|---|---|
 | [Conditional Expressions](Conditional%20Expressions/README.md) | Conditional values | Optional EC2 instance |
+| [Bulk IAM User Management](Bulk%20IAM%20User%20Management/README.md) | CSV-driven IAM automation | 26 IAM users, login profiles, and groups |
 | [Data source](Data%20source/README.md) | Discover existing AWS resources | VPC/subnet/AMI lookup and EC2 |
 | [Functions](Functions/README.md) | Terraform expression functions | Region, identity, and AZ data sources |
 | [Hosting website on S3 CloudFront](Hosting_website_on_s3_cloudfront/README.md) | Static website delivery | S3, CloudFront, OAC, bucket policy, objects |
@@ -87,5 +90,5 @@ Some backend examples point at the same bucket/key (`dev/terraform.tfstate`). Ne
 1. [Terraform AWS Provider](Terraform%20AWS%20Provider/README.md) and [S3 Terraform](S3%20Terraform/README.md)
 2. [Terraform filestructure](Terraform%20filestructure/README.md), [Type Constraints](Terraform%20Type%20Constraints/README.md), and [Meta Arguments](Meta%20Arguments/README.md)
 3. [Conditional Expressions](Conditional%20Expressions/README.md), [Functions](Functions/README.md), and [Data source](Data%20source/README.md)
-4. [Lifecycle Rules](Lifecycle%20Rules/README.md) and [StateFile Management](Terraform%20StateFile%20Management/README.md)
+4. [Bulk IAM User Management](Bulk%20IAM%20User%20Management/README.md), [Lifecycle Rules](Lifecycle%20Rules/README.md), and [StateFile Management](Terraform%20StateFile%20Management/README.md)
 5. [Hosting website on S3 CloudFront](Hosting_website_on_s3_cloudfront/README.md) and [VPC Peering](VPC%20Peering%20Terraform/README.md)
