@@ -25,6 +25,7 @@ mindmap
       S3 + CloudFront website
       Cross-region VPC peering
       Bulk IAM user management
+      ImageProcesingUsingLambda
       Blue-green Elastic Beanstalk deployment
 ```
 
