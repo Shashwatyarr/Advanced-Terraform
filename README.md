@@ -2,6 +2,8 @@
 
 This repository is a collection of independent Terraform exercises and AWS infrastructure examples. Each subfolder is its own Terraform root module: initialize, plan, apply, and destroy from inside that folder rather than from the repository root.
 
+**Note: All the Readme in all folders has been made with Github Copilot, So thier might be some errors or misinterpretations.
+
 ## What This Repo Covers
 
 ```mermaid
