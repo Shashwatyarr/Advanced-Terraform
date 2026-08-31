@@ -26,6 +26,7 @@ mindmap
       Cross-region VPC peering
       Bulk IAM user management
       ImageProcesingUsingLambda
+      Terraform Provisioners
       Blue-green Elastic Beanstalk deployment
 ```
 
@@ -45,6 +46,7 @@ mindmap
 | [S3 Terraform](S3%20Terraform/README.md) | First AWS resource | One S3 bucket |
 | [Terraform AWS Provider](Terraform%20AWS%20Provider/README.md) | Provider and resource basics | One VPC |
 | [Terraform filestructure](Terraform%20filestructure/README.md) | Files, locals, outputs, naming | Random suffix and S3 bucket |
+| [Terraform Provisioners](Terraform%20Provisioners/README.md) | Bootstrapping with `local-exec`, `remote-exec`, and `file` | EC2 instance with SSH-based provisioning |
 | [Terraform StateFile Management](Terraform%20StateFile%20Management/README.md) | Remote state and locking | S3 backend plus S3 bucket |
 | [Terraform Type Constraints](Terraform%20Type%20Constraints/README.md) | Typed inputs and `count` | EC2 and security group rules |
 | [VPC Peering Terraform](VPC%20Peering%20Terraform/README.md) | Cross-region networking | Two VPCs, peering, routes, and EC2 |
@@ -97,4 +99,5 @@ Some backend examples point at the same bucket/key (`dev/terraform.tfstate`). Ne
 3. [Conditional Expressions](Conditional%20Expressions/README.md), [Functions](Functions/README.md), and [Data source](Data%20source/README.md)
 4. [Bulk IAM User Management](Bulk%20IAM%20User%20Management/README.md), [Lifecycle Rules](Lifecycle%20Rules/README.md), and [StateFile Management](Terraform%20StateFile%20Management/README.md)
 5. [Hosting website on S3 CloudFront](Hosting_website_on_s3_cloudfront/README.md), [Image Processing with Lambda](ImageProcesingUsingLambda/README.md), and [Blue-Green Deployment](Blue-Green%20Deployment%20Using%20Elastic%20Beanstalk/README.md)
-6. [VPC Peering](VPC%20Peering%20Terraform/README.md) and [Data source](Data%20source/README.md) for networking and discovery patterns
+6. [Terraform Provisioners](Terraform%20Provisioners/README.md) for resource bootstrapping and remote execution patterns
+7. [VPC Peering](VPC%20Peering%20Terraform/README.md) and [Data source](Data%20source/README.md) for networking and discovery patterns
