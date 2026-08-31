@@ -28,6 +28,7 @@ mindmap
       Cross-region VPC peering
       Bulk IAM user management
       ImageProcesingUsingLambda
+      Custom modules for EKS
       Terraform Provisioners
       Blue-green Elastic Beanstalk deployment
 ```
@@ -39,6 +40,7 @@ mindmap
 | [Blue-Green Deployment Using Elastic Beanstalk](Blue-Green%20Deployment%20Using%20Elastic%20Beanstalk/README.md) | Zero-downtime release promotion and rollback | Elastic Beanstalk application with Blue/Green environments, ALBs, IAM roles, and S3 artifacts |
 | [Conditional Expressions](Conditional%20Expressions/README.md) | Conditional values | Optional EC2 instance |
 | [Bulk IAM User Management](Bulk%20IAM%20User%20Management/README.md) | CSV-driven IAM automation | 26 IAM users, login profiles, and groups |
+| [Custom Modules for EKS](Custom%20Modules%20for%20EKS/README.md) | Reusable Terraform modules for a production EKS stack | VPC, IAM roles, EKS cluster, node groups, and add-ons |
 | [Data source](Data%20source/README.md) | Discover existing AWS resources | VPC/subnet/AMI lookup and EC2 |
 | [Functions](Functions/README.md) | Terraform expression functions | Region, identity, and AZ data sources |
 | [Hosting website on S3 CloudFront](Hosting_website_on_s3_cloudfront/README.md) | Static website delivery | S3, CloudFront, OAC, bucket policy, objects |
@@ -101,5 +103,6 @@ Some backend examples point at the same bucket/key (`dev/terraform.tfstate`). Ne
 3. [Conditional Expressions](Conditional%20Expressions/README.md), [Functions](Functions/README.md), and [Data source](Data%20source/README.md)
 4. [Bulk IAM User Management](Bulk%20IAM%20User%20Management/README.md), [Lifecycle Rules](Lifecycle%20Rules/README.md), and [StateFile Management](Terraform%20StateFile%20Management/README.md)
 5. [Hosting website on S3 CloudFront](Hosting_website_on_s3_cloudfront/README.md), [Image Processing with Lambda](ImageProcesingUsingLambda/README.md), and [Blue-Green Deployment](Blue-Green%20Deployment%20Using%20Elastic%20Beanstalk/README.md)
-6. [Terraform Provisioners](Terraform%20Provisioners/README.md) for resource bootstrapping and remote execution patterns
-7. [VPC Peering](VPC%20Peering%20Terraform/README.md) and [Data source](Data%20source/README.md) for networking and discovery patterns
+6. [Custom Modules for EKS](Custom%20Modules%20for%20EKS/README.md) for reusable module design and production-style composition
+7. [Terraform Provisioners](Terraform%20Provisioners/README.md) for resource bootstrapping and remote execution patterns
+8. [VPC Peering](VPC%20Peering%20Terraform/README.md) and [Data source](Data%20source/README.md) for networking and discovery patterns
