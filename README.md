@@ -31,6 +31,7 @@ mindmap
       Terraform Provisioners
       Blue-green Elastic Beanstalk deployment
       Policy and Governance
+      2-Tier Architecture
       
     Projects
       Custom modules for EKS
@@ -51,13 +52,14 @@ mindmap
 | 9 | [Lifecycle Rules](Lifecycle%20Rules/) | Lifecycle management | ⭐⭐ | EC2, S3, ASG, security groups |
 | 10 | [Meta Arguments](Meta%20Arguments/) | count, for_each | ⭐⭐ | Multiple S3 buckets |
 | 11 | [Policy and Governance](Policy%20and%20governance/) | AWS Config, IAM policies | ⭐⭐⭐ | AWS Config, IAM, S3, compliance |
-| 12 | [S3 Terraform](S3%20Terraform/) | First AWS resource | ⭐ | Single S3 bucket |
-| 13 | [Terraform AWS Provider](Terraform%20AWS%20Provider/) | Provider config | ⭐ | Basic setup |
-| 14 | [Terraform File Structure](Terraform%20filestructure/) | Project organization | ⭐⭐ | Best practices |
-| 15 | [Terraform Provisioners](Terraform%20Provisioners/) | Post-deployment config | ⭐⭐⭐ | EC2, scripts, file provisioners |
-| 16 | [State File Management](Terraform%20StateFile%20Management/) | Remote state | ⭐⭐ | S3 backend, state locking |
-| 17 | [Type Constraints](Terraform%20Type%20Constraints/) | Variable validation | ⭐⭐ | Type checking, complex types |
-| 18 | [VPC Peering](VPC%20Peering%20Terraform/) | Multi-VPC networking | ⭐⭐⭐ | VPCs, peering, routes |
+| 12 | [2-Tier Architecture](2-Tier%20Architecture/) | Web + Database tiers | ⭐⭐⭐ | VPC, EC2, RDS, Security Groups |
+| 13 | [S3 Terraform](S3%20Terraform/) | First AWS resource | ⭐ | Single S3 bucket |
+| 14 | [Terraform AWS Provider](Terraform%20AWS%20Provider/) | Provider config | ⭐ | Basic setup |
+| 15 | [Terraform File Structure](Terraform%20filestructure/) | Project organization | ⭐⭐ | Best practices |
+| 16 | [Terraform Provisioners](Terraform%20Provisioners/) | Post-deployment config | ⭐⭐⭐ | EC2, scripts, file provisioners |
+| 17 | [State File Management](Terraform%20StateFile%20Management/) | Remote state | ⭐⭐ | S3 backend, state locking |
+| 18 | [Type Constraints](Terraform%20Type%20Constraints/) | Variable validation | ⭐⭐ | Type checking, complex types |
+| 19 | [VPC Peering](VPC%20Peering%20Terraform/) | Multi-VPC networking | ⭐⭐⭐ | VPCs, peering, routes |
 
 ## 🎓 Learning Path
 
@@ -80,8 +82,9 @@ mindmap
 12. Create [Terraform Provisioners](Terraform%20Provisioners/) - Post-deployment configuration
 13. Develop [Custom Modules for EKS](Custom%20Modules%20for%20EKS/) - Reusable infrastructure
 14. Setup [Policy and Governance](Policy%20and%20governance/) - Security and compliance
-15. Architect [Image Processing Lambda](ImageProcesingUsingLambda/) - Serverless pipelines
-16. Deploy [Blue-Green Deployment](Blue-Green%20Deployment%20Using%20Elastic%20Beanstalk/) - Production patterns
+15. Deploy [2-Tier Architecture](2-Tier%20Architecture/) - Real-world web application architecture
+16. Architect [Image Processing Lambda](ImageProcesingUsingLambda/) - Serverless pipelines
+17. Deploy [Blue-Green Deployment](Blue-Green%20Deployment%20Using%20Elastic%20Beanstalk/) - Production patterns
 
 ## 🚀 Getting Started
 
