@@ -35,7 +35,26 @@ mindmap
       
     Projects
       Custom modules for EKS
+      End-to-end observability
 ```
+
+    ## 🏢 Industry-Level Projects
+
+    These projects combine multiple AWS services into operational architectures rather than demonstrating a single Terraform feature. They include production-oriented concerns such as modular infrastructure, event-driven processing, deployment strategy, observability, alerting, governance, security boundaries, and operational runbooks.
+
+    | Project | Industry capability | AWS services and patterns |
+    |---|---|---|
+    | [End-to-End Observability](End%20to%20End%20Observability/) | Full telemetry-to-action pipeline for an event-driven image-processing workload | S3 events, Lambda, Pillow Layer, IAM, CloudWatch Logs, native and custom metrics, metric filters, dashboards, alarms, SNS email/SMS routing, optional CloudTrail S3 data-event monitoring |
+    | [Blue-Green Deployment](Blue-Green%20Deployment%20Using%20Elastic%20Beanstalk/) | Controlled releases with environment switching and rollback path | Elastic Beanstalk, ALB, S3, application versions, blue-green traffic swap |
+    | [Custom Modules for EKS](Custom%20Modules%20for%20EKS/) | Reusable Kubernetes platform foundation | VPC, EKS, IAM, managed node groups, add-ons, module composition |
+    | [2-Tier Architecture](2-Tier%20Architecture/) | Segmented web and database application architecture | VPC, public/private subnets, EC2, RDS, security groups, outputs and variables |
+    | [Policy and Governance](Policy%20and%20governance/) | Preventive and detective cloud governance | AWS Config, IAM policies, S3 controls, compliance-oriented rules |
+
+    ### Featured: End-to-End Observability
+
+    The [End to End Observability](End%20to%20End%20Observability/) project is the repository's most complete monitoring reference. An S3 upload triggers a Python 3.12 Lambda function, which writes processed image variants to a second bucket and emits correlated logs and custom business metrics. CloudWatch combines those signals with native Lambda metrics, visualizes them in a Terraform-managed dashboard, evaluates health and performance thresholds, and routes critical, performance, and log-pattern alerts through dedicated SNS topics. An optional CloudTrail path monitors S3 object-level security activity.
+
+    Its project README includes the architecture screenshot, Mermaid data flow, module responsibilities, function behavior, metric taxonomy, dashboard widgets, alarm-by-alarm runbook, deployment commands, security hardening, and cost considerations.
 
 ## 📚 Complete Project Index
 
@@ -60,6 +79,7 @@ mindmap
 | 17 | [State File Management](Terraform%20StateFile%20Management/) | Remote state | ⭐⭐ | S3 backend, state locking |
 | 18 | [Type Constraints](Terraform%20Type%20Constraints/) | Variable validation | ⭐⭐ | Type checking, complex types |
 | 19 | [VPC Peering](VPC%20Peering%20Terraform/) | Multi-VPC networking | ⭐⭐⭐ | VPCs, peering, routes |
+| 20 | [End-to-End Observability](End%20to%20End%20Observability/) | Production monitoring and alerting | ⭐⭐⭐⭐ | S3, Lambda, CloudWatch, SNS, CloudTrail |
 
 ## 🎓 Learning Path
 
@@ -85,6 +105,7 @@ mindmap
 15. Deploy [2-Tier Architecture](2-Tier%20Architecture/) - Real-world web application architecture
 16. Architect [Image Processing Lambda](ImageProcesingUsingLambda/) - Serverless pipelines
 17. Deploy [Blue-Green Deployment](Blue-Green%20Deployment%20Using%20Elastic%20Beanstalk/) - Production patterns
+18. Implement [End-to-End Observability](End%20to%20End%20Observability/) - Full telemetry, dashboards, alarms, and incident notification
 
 ## 🚀 Getting Started
 
