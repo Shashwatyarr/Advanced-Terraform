@@ -1,6 +1,6 @@
 # Terraform working directory
 **/.terraform/
-
+**/**/node_modules/
 # Terraform state files
 **/*.tfstate
 **/*.tfstate.*
