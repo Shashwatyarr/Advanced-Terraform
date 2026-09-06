@@ -15,6 +15,10 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // API proxy routes to forward requests to the backend
 app.post('/api/goals', async (req, res) => {
   try {

@@ -22,6 +22,20 @@ systemctl enable docker
 usermod -aG docker ubuntu
 log "✅ Docker installed and started successfully"
 
+log "Waiting for Docker daemon..."
+for i in {1..30}; do
+  if docker info >/dev/null 2>&1; then
+    log "Docker daemon is ready"
+    break
+  fi
+  if [ "$i" -eq 30 ]; then
+    log "Docker daemon did not become ready"
+    systemctl status docker --no-pager || true
+    exit 1
+  fi
+  sleep 2
+done
+
 # Install AWS CLI v2
 log "Installing AWS CLI v2..."
 curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
