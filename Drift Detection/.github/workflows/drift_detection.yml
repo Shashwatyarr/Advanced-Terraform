@@ -64,7 +64,7 @@ jobs:
           EXIT_CODE=$?
           echo "exitcode=$EXIT_CODE" >> $GITHUB_OUTPUT
           cat plan_output.txt
-          exit 0  # Always succeed so workflow continues
+          exit 0  # Always succeed so workflow continue
 
       - name: Analyze Drift
         if: steps.plan.outputs.exitcode == '2'
