@@ -5,14 +5,10 @@
 
 terraform {
   backend "s3" {
-    # Backend configuration will be provided via backend config file or CLI
-    # This allows different state files for dev and prod environments
-
-    # Configuration values provided at init time:
-    # bucket        = "terraform-state-bucket-name"
-    # key           = "env/terraform.tfstate"  # Will be dev or prod
-    # region        = "us-east-1"
-    # use_lockfile  = true  # S3 native state locking (Terraform 1.10.0+)
-    # encrypt       = true
+    # Backend configuration is provided via backend-dev.hcl or backend-prod.hcl.
+    # This keeps dev and prod state files separate and avoids using a stale placeholder bucket.
+    region       = "us-east-1"
+    use_lockfile = true
+    encrypt      = true
   }
 }
