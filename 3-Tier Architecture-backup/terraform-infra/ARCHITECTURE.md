@@ -50,6 +50,8 @@ docker-local-deployment/          Local Docker Compose files
 
 ## 2. Logical Architecture
 
+![AWS 3-Tier Architecture Diagram](../Screenshot%202026-09-07%20093936.png)
+
 ```text
                                   Internet
                                       |

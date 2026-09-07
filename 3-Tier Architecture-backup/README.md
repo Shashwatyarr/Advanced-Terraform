@@ -33,6 +33,8 @@ Run Terraform commands from `terraform-infra/environments/dev`.
 
 ## Architecture
 
+![AWS 3-Tier Architecture Diagram](./Screenshot%202026-09-07%20093936.png)
+
 ```text
                                    Internet
                                       |
