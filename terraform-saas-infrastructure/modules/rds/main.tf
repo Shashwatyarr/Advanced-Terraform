@@ -35,10 +35,10 @@ resource "aws_db_instance" "this" {
   identifier = "saas-${var.environment}-db"
 
   engine               = "postgres"
-  engine_version       = "15.7" # Hardcoding for stability, but could be a variable
+  engine_version       = "15.7"
   instance_class       = var.db_instance_class
   allocated_storage    = var.db_allocated_storage
-  storage_type         = "gp3" # General Purpose SSD (newer generation)
+  storage_type         = "gp3" 
 
   db_name  = var.db_name
   username = var.db_username
@@ -46,13 +46,12 @@ resource "aws_db_instance" "this" {
 
   db_subnet_group_name   = var.db_subnet_group_name
   vpc_security_group_ids = [var.db_security_group_id]
-  publicly_accessible    = false # Explicitly disabling public access
+  publicly_accessible    = false
 
   multi_az                = var.multi_az
   backup_retention_period = var.backup_retention_period
   deletion_protection     = var.deletion_protection
   
-  # Allow destruction in dev/test without taking a final snapshot
   skip_final_snapshot = var.environment == "prod" ? false : true
 
   tags = {

@@ -15,7 +15,7 @@ resource "aws_s3_bucket" "terraform_state" {
   }
 }
 
-# Enable Versioning (Required for State History and Rollbacks)
+# Enable Versioning 
 resource "aws_s3_bucket_versioning" "terraform_state" {
   bucket = aws_s3_bucket.terraform_state.id
   versioning_configuration {
@@ -23,7 +23,7 @@ resource "aws_s3_bucket_versioning" "terraform_state" {
   }
 }
 
-# Enable Server-Side Encryption (Best Practice for Sensitive State)
+# Enable Server-Side Encryption 
 resource "aws_s3_bucket_server_side_encryption_configuration" "terraform_state" {
   bucket = aws_s3_bucket.terraform_state.id
   rule {
@@ -33,7 +33,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "terraform_state" 
   }
 }
 
-# Block Public Access (Critical Security Practice)
+# Block Public Access
 resource "aws_s3_bucket_public_access_block" "terraform_state" {
   bucket                  = aws_s3_bucket.terraform_state.id
   block_public_acls       = true

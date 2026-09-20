@@ -1,9 +1,8 @@
 terraform {
   backend "s3" {
-    # Replace this with the actual bucket name created during the bootstrap step
     bucket         = "very-good-bucket-17"
     
-    # The state file name (the workspace name is automatically prepended to this path by Terraform)
+    # The state file name 
     key            = "saas-infrastructure/terraform.tfstate"
     
     region         = "us-east-1"

@@ -50,13 +50,11 @@ resource "aws_s3_bucket_lifecycle_configuration" "this" {
     id     = "archive_and_expire_old_versions"
     status = "Enabled"
 
-    # Move old versions to cheaper Infrequent Access storage after 30 days
     noncurrent_version_transition {
       noncurrent_days = 30
       storage_class   = "STANDARD_IA"
     }
 
-    # Permanently delete old versions after 90 days to save costs
     noncurrent_version_expiration {
       noncurrent_days = 90
     }

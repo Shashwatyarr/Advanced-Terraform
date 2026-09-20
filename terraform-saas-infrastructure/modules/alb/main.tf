@@ -42,10 +42,6 @@ resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.this.arn
   port              = "80"
   protocol          = "HTTP"
-
-  # Note for MSE Viva: In a fully production-ready setup with a registered domain, 
-  # this listener would ideally be configured to redirect HTTP to HTTPS, 
-  # and a secondary HTTPS listener would handle the SSL termination via AWS Certificate Manager (ACM).
   default_action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.this.arn

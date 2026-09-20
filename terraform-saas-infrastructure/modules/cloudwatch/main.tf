@@ -40,7 +40,7 @@ resource "aws_cloudwatch_metric_alarm" "alb_5xx" {
   namespace           = "AWS/ApplicationELB"
   period              = "60"
   statistic           = "Sum"
-  threshold           = "10" # Alert if 10 or more 5XX errors occur in a single minute
+  threshold           = "10" 
   alarm_description   = "Monitors ALB for 5XX errors originating from the application"
   alarm_actions       = [aws_sns_topic.alerts.arn]
 
@@ -58,8 +58,6 @@ resource "aws_cloudwatch_metric_alarm" "alb_response_time" {
   namespace           = "AWS/ApplicationELB"
   period              = "60"
   statistic           = "Average"
-  
-  # Strict response time requirement for prod (0.5 seconds), relaxed for dev (1.0 seconds)
   threshold           = var.environment == "prod" ? 0.5 : 1.0
   
   alarm_description   = "Monitors ALB target response time"

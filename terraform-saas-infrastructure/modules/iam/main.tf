@@ -20,7 +20,7 @@ resource "aws_iam_role" "ec2_role" {
   }
 }
 
-# Attach AWS Managed Policy for Systems Manager (Allows secure shell without SSH keys)
+# Attach AWS Managed Policy for Systems Manager 
 resource "aws_iam_role_policy_attachment" "ssm_managed" {
   role       = aws_iam_role.ec2_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
@@ -57,7 +57,6 @@ resource "aws_iam_policy" "app_policy" {
           "secretsmanager:GetSecretValue"
         ]
         Effect   = "Allow"
-        # In a strict production environment, this should be restricted to the exact Secret ARN.
         Resource = "*" 
       }
     ]
@@ -69,7 +68,7 @@ resource "aws_iam_role_policy_attachment" "app_policy_attach" {
   policy_arn = aws_iam_policy.app_policy.arn
 }
 
-# IAM Instance Profile (Required to attach the role to an EC2 instance)
+# IAM Instance Profile
 resource "aws_iam_instance_profile" "ec2_profile" {
   name = "saas-${var.environment}-ec2-profile"
   role = aws_iam_role.ec2_role.name
