@@ -1,0 +1,7 @@
+aws_region    = "us-east-1"
+bucket_prefix = "mse-eval-dev"
+ssh_cidr      = "0.0.0.0/0" # Dev allows open access for easier testing
+
+# Explicitly defining dev values as requested
+instance_type  = "t3.micro"
+instance_count = 1
