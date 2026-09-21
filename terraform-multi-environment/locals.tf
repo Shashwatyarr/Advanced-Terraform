@@ -1,5 +1,4 @@
 locals {
-  # Determine environment: prioritize terraform.workspace, fallback to var.environment_override if workspace is default
   environment = terraform.workspace == "default" ? (var.environment_override != "" ? var.environment_override : "dev") : terraform.workspace
 
   # Environment configuration map mapping the active workspace to compute values
@@ -9,12 +8,12 @@ locals {
       instance_count = 1
     }
     prod = {
-      instance_type  = "t3.small"
+      instance_type  = "t3.micro"
       instance_count = 3
     }
   }
 
-  # Safely fetch the configuration for the active environment (fallback to dev if unknown)
+  # Safely fetch the configuration for the active environment
   active_config = contains(keys(local.environment_config), local.environment) ? local.environment_config[local.environment] : local.environment_config["dev"]
 
   # Final resolution for instance specs: TFVars overrides take precedence > Environment Map

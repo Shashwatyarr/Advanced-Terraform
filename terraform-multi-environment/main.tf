@@ -34,11 +34,9 @@ resource "aws_instance" "app_server" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = local.final_instance_type
 
-  # Deploy into the first available subnet from our data source
   subnet_id              = data.aws_subnets.default.ids[0]
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
-  # Tagging with instance index for uniqueness
   tags = merge(local.common_tags, {
     Name = "${var.project_name}-${local.environment}-instance-${count.index + 1}"
   })
@@ -48,7 +46,6 @@ resource "aws_instance" "app_server" {
 # S3 Bucket
 # ---------------------------------------------------------
 resource "aws_s3_bucket" "storage" {
-  # Name must be globally unique, incorporating environment and a random prefix
   bucket = "${var.bucket_prefix}-${var.project_name}-${local.environment}"
 
   tags = local.common_tags

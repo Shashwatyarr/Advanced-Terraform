@@ -52,6 +52,25 @@ This project uses the AWS Terraform provider. Authentication is expected via sta
 
 ## 10. Deployment Workflow (Validation & Plan Verification)
 
+### Step 0: Bootstrap Remote State (Optional)
+If you wish to use remote state, provision the S3 bucket and DynamoDB table first:
+```bash
+cd bootstrap
+terraform init
+terraform apply
+cd ..
+```
+After applying, note the bucket and table names from the outputs, and add the following backend configuration inside the `terraform {}` block in your root `versions.tf`:
+```hcl
+  backend "s3" {
+    bucket         = "YOUR_BUCKET_NAME"
+    key            = "state/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "YOUR_TABLE_NAME"
+    encrypt        = true
+  }
+```
+
 ### Step 1: Initialize
 Initialize the working directory containing Terraform configuration files.
 ```bash
@@ -110,51 +129,4 @@ terraform workspace select prod
 terraform destroy -var-file="terraform.tfvars.prod"
 ```
 
----
 
-## 12. MSE Viva Questions and Answers
-
-**1. What is Terraform?**
-Terraform is an open-source Infrastructure as Code (IaC) tool by HashiCorp that allows you to define, provision, and manage cloud infrastructure using a declarative configuration language (HCL).
-
-**2. Why are Terraform Workspaces used?**
-Workspaces allow you to manage multiple distinct states (e.g., dev, prod) from the same configuration directory. They enable reusing the same Terraform code across different environments safely.
-
-**3. What is the difference between variables and locals?**
-Variables are inputs passed into a Terraform module from the outside (e.g., via CLI or `.tfvars`). Locals are internal, derived values computed within the module to reduce repetition and complex expressions.
-
-**4. Why do we use tfvars files?**
-`.tfvars` files are used to assign environment-specific values to variables, keeping sensitive or environment-specific data out of the core resource configuration.
-
-**5. What are Terraform Data Blocks?**
-Data blocks (or Data Sources) allow Terraform to dynamically query and fetch information about infrastructure that exists outside of the current Terraform configuration, such as AMIs, VPCs, or Subnets.
-
-**6. Why should AMI IDs not be hardcoded?**
-AMI IDs are region-specific and periodically updated (e.g., for security patches). Hardcoding them makes the code brittle, difficult to maintain, and non-portable across regions.
-
-**7. How does the same code provision dev and prod?**
-The code dynamically references variables and local mappings. By switching the active workspace (`terraform.workspace`) and passing different `.tfvars` files, the same code adapts its resource definitions based on the active environment.
-
-**8. Why does prod have 3 EC2 instances?**
-In `locals.tf` (and `terraform.tfvars.prod`), the `instance_count` variable/map for `prod` is set to 3. The `count` meta-argument on the `aws_instance` resource loops 3 times, provisioning three identical instances for higher availability.
-
-**9. What is the purpose of resource tags?**
-Tags are key-value pairs assigned to cloud resources for organization, cost tracking, security auditing, and automation. In this project, they indicate which environment a resource belongs to.
-
-**10. What happens when we switch workspaces?**
-Switching workspaces points Terraform to a different, isolated state file. Any `terraform apply` or `destroy` will only affect the infrastructure tracked in that specific workspace's state file.
-
-**11. How does Terraform track infrastructure state?**
-Terraform tracks the mapping between the configuration code and the real-world cloud resources in a JSON state file (`terraform.tfstate`). It uses this file to determine what needs to be created, updated, or destroyed.
-
-**12. Why should `terraform.tfstate` not be committed to Git?**
-The state file can contain sensitive information (secrets, passwords, database URLs) in plain text. Committing it exposes this data and can cause conflicts if multiple people try to update the infrastructure simultaneously.
-
-**13. What is the purpose of `terraform validate`?**
-It checks the syntax, configuration consistency, and structural validity of the Terraform files without accessing remote state or APIs.
-
-**14. What happens if `terraform apply` fails?**
-Terraform updates the state file with whatever resources were successfully created before the failure. On the next run, it will attempt to pick up where it left off to resolve the discrepancies.
-
-**15. What is the difference between local and remote state?**
-Local state stores the `.tfstate` file on your local machine, which is risky for teams. Remote state stores the state file in a remote backend (like S3 or Terraform Cloud), enabling state locking and team collaboration.
